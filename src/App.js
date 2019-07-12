@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-function App() {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "george"
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <Options data={this.state.name} />
+      </div>
+    );
+  }
+}
+
+class Options extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      city: "Jo birg"
+    };
+  }
+  render() {
+    return (
+      <div>
+        <h1>{this.props.data}</h1>
+        <DataRender city={this.state.city} />
+      </div>
+    );
+  }
+}
+
+const DataRender = props => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h3>{props.city}</h3>
     </div>
   );
-}
+};
 
 export default App;
